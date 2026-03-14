@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SpeedZone — Home</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0a0a0a; color: #f5f5f0; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: rgba(10,10,10,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .logo { font-size: 1.6rem; font-weight: 700; letter-spacing: 2px; color: #f5f5f0; text-decoration: none; }
+    .logo span { color: #e8112d; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav a { color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: #e8112d; }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+    .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+    .hero h1 span { color: #e8112d; }
+    .hero p { font-size: 1.2rem; color: #888; max-width: 600px; margin-bottom: 2rem; }
+    .btn { display: inline-block; padding: 0.8rem 2rem; background: #e8112d; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background 0.2s; }
+    .btn:hover { background: #c50e26; }
+    .features { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
+    .features h2 { text-align: center; font-size: 2rem; margin-bottom: 3rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .card { background: #141414; padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); }
+    .card h3 { color: #e8112d; margin-bottom: 0.5rem; }
+    .card p { color: #888; line-height: 1.6; }
+    footer { text-align: center; padding: 2rem; color: #555; border-top: 1px solid rgba(255,255,255,0.06); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">Speed<span>Zone</span></a>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Welcome to <span>SpeedZone</span></h1>
+    <p>Experience the thrill of high-performance automotive excellence. We bring speed, precision, and passion together.</p>
+    <a href="about.html" class="btn">Learn More</a>
+  </section>
+
+  <section class="features">
+    <h2>What We Offer</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Performance Tuning</h3>
+        <p>Custom ECU remapping, turbo upgrades, and exhaust systems to unleash your car's full potential.</p>
+      </div>
+      <div class="card">
+        <h3>Track Experiences</h3>
+        <p>Book exclusive track days with professional instructors and high-performance vehicles.</p>
+      </div>
+      <div class="card">
+        <h3>Premium Parts</h3>
+        <p>Genuine performance parts from top brands, installed by certified technicians.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 SpeedZone. All rights reserved.</p>
+  </footer>
+
+  <!-- Amplitude Analytics -->
+  <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz"></script>
+  <script>
+  (function() {
+    var siteId = "test-site-001";
+    var subdomain = "speedzone-test";
+
+    window.amplitude.init("f3ff40b074cc0202edf46bcd4645bf4d", {
+      autocapture: { elementInteractions: false, formInteractions: true, pageViews: false, sessions: true },
+      defaultTracking: { sessions: true, pageViews: false }
+    });
+
+    var identify = new amplitude.Identify();
+    identify.set('site_id', siteId);
+    identify.set('subdomain', subdomain);
+    amplitude.identify(identify);
+
+    amplitude.track('page_view', {
+      site_id: siteId,
+      subdomain: subdomain,
+      page_path: window.location.pathname,
+      page_title: document.title,
+      referrer: document.referrer
+    });
+  })();
+  </script>
+</body>
+</html>
